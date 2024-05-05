@@ -10,7 +10,7 @@ function M.get()
 	local c = require("nano-theme.colors").get()
 
 	return {
-		FlashLabel = { fg = c.nano_salient_color, bg = c.nano_faded_color, bold = true },
+		FlashLabel = { fg = c.nano_salient_color, bg = c.nano_subtle_color, bold = true },
 	}
 end
 
