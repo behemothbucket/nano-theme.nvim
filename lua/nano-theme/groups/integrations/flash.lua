@@ -1,6 +1,6 @@
 -- Description -----------------------------------------------------------------------------
 --
--- Integration with mini.
+-- Integration with flash.
 --
 -- -----------------------------------------------------------------------------------------
 
@@ -10,7 +10,7 @@ function M.get()
 	local c = require("nano-theme.colors").get()
 
 	return {
-		MiniIndentscopeSymbol = c.nano_faded,
+		FlashLabel = { fg = c.nano_salient_color, bg = c.nano_faded_color, bold = true },
 	}
 end
 

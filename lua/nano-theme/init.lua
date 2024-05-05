@@ -29,66 +29,67 @@
 local M = {}
 
 function M.load()
-  -- Clear all the current highlights.
-  vim.cmd([[hi clear]])
+	-- Clear all the current highlights.
+	vim.cmd([[hi clear]])
 
-  -- Set the variables regarding the current theme.
-  vim.g.colors_name = "nano-theme"
-  vim.o.termguicolors = true
+	-- Set the variables regarding the current theme.
+	vim.g.colors_name = "nano-theme"
+	vim.o.termguicolors = true
 
-  -- Load the default groups.
-  local g_editor = require("nano-theme.groups.editor").get()
-  local g_syntax = require("nano-theme.groups.syntax").get()
+	-- Load the default groups.
+	local g_editor = require("nano-theme.groups.editor").get()
+	local g_syntax = require("nano-theme.groups.syntax").get()
 
-  for name, val in pairs(g_editor) do
-    vim.api.nvim_set_hl(0, name, val)
-  end
+	for name, val in pairs(g_editor) do
+		vim.api.nvim_set_hl(0, name, val)
+	end
 
-  for name, val in pairs(g_syntax) do
-    vim.api.nvim_set_hl(0, name, val)
-  end
+	for name, val in pairs(g_syntax) do
+		vim.api.nvim_set_hl(0, name, val)
+	end
 
-  -- Integrations --------------------------------------------------------------------------
+	-- Integrations --------------------------------------------------------------------------
 
-  -- List of available integrations.
-  local integrations = {
-    "dashboard",
-    "mini",
-    "neogit",
-    "neotree",
-    "noice",
-    "notify",
-    "nvim-lsp",
-    "telescope",
-    "treesitter",
-  }
+	-- List of available integrations.
+	local integrations = {
+		"dashboard",
+		"mini",
+		"neogit",
+		"neotree",
+		"noice",
+		"notify",
+		"nvim-lsp",
+		"telescope",
+		"treesitter",
+		"flash",
+	}
 
-  for k, i in ipairs(integrations) do
-    local g = require("nano-theme.groups.integrations." .. i).get()
+	for k, i in ipairs(integrations) do
+		local g = require("nano-theme.groups.integrations." .. i).get()
 
-    for name, val in pairs(g) do
-      vim.api.nvim_set_hl(0, name, val)
-    end
-  end
+		for name, val in pairs(g) do
+			vim.api.nvim_set_hl(0, name, val)
+		end
+	end
 
-  -- Set the terminal colors.
-  local c = require("nano-theme.colors").get()
-  vim.g.terminal_color_0  = c.terminal_color_0
-  vim.g.terminal_color_1  = c.terminal_color_1
-  vim.g.terminal_color_2  = c.terminal_color_2
-  vim.g.terminal_color_3  = c.terminal_color_3
-  vim.g.terminal_color_4  = c.terminal_color_4
-  vim.g.terminal_color_5  = c.terminal_color_5
-  vim.g.terminal_color_6  = c.terminal_color_6
-  vim.g.terminal_color_7  = c.terminal_color_7
-  vim.g.terminal_color_8  = c.terminal_color_8
-  vim.g.terminal_color_9  = c.terminal_color_9
-  vim.g.terminal_color_10 = c.terminal_color_10
-  vim.g.terminal_color_11 = c.terminal_color_11
-  vim.g.terminal_color_12 = c.terminal_color_12
-  vim.g.terminal_color_13 = c.terminal_color_13
-  vim.g.terminal_color_14 = c.terminal_color_14
-  vim.g.terminal_color_15 = c.terminal_color_15
+	-- Set the terminal colors.
+	local c = require("nano-theme.colors").get()
+	vim.g.terminal_color_0 = c.terminal_color_0
+	vim.g.terminal_color_1 = c.terminal_color_1
+	vim.g.terminal_color_2 = c.terminal_color_2
+	vim.g.terminal_color_3 = c.terminal_color_3
+	vim.g.terminal_color_4 = c.terminal_color_4
+	vim.g.terminal_color_5 = c.terminal_color_5
+	vim.g.terminal_color_6 = c.terminal_color_6
+	vim.g.terminal_color_7 = c.terminal_color_7
+	vim.g.terminal_color_8 = c.terminal_color_8
+	vim.g.terminal_color_9 = c.terminal_color_9
+	vim.g.terminal_color_10 = c.terminal_color_10
+	vim.g.terminal_color_11 = c.terminal_color_11
+	vim.g.terminal_color_12 = c.terminal_color_12
+	vim.g.terminal_color_13 = c.terminal_color_13
+	vim.g.terminal_color_14 = c.terminal_color_14
+	vim.g.terminal_color_15 = c.terminal_color_15
 end
 
 return M
